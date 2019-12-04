@@ -1,18 +1,16 @@
 'use strict';
-
-console.log("proof of life");
-
+console.log("proof of life again");
 //Global Variables
 var picOne = document.getElementById('picture1');
-var picOne = document.getElementById('picture2');
-var picOne = document.getElementById('picture3');
+var picTwo = document.getElementById('picture2');
+var picThree = document.getElementById('picture3');
 var picArray = [];
 var picVote = document.getElementById('picVote');
 var voteRounds = 25;
 
 //Make a Constructor
 function image (src, name) {
-    this.src = '../img/${src}.jpg';
+    this.src = `./img/${src}.jpg`;
     this.title = name;
     this.alt = name;
     this.viewed = 0;
@@ -25,6 +23,7 @@ function image (src, name) {
 function hide (elem) {
     elem.style.display = 'none';
 }
+
 
 //Create Random Helper Function
 function clickVote() {
@@ -42,6 +41,7 @@ function clickVote() {
     voteRounds --;
     console.log(voteRounds)
 }
+console.log("proof of life again444444");
 
 // Random Number Function From MDN
 function randomIndex(max) {
@@ -49,7 +49,7 @@ function randomIndex(max) {
 }
 
 function generateImages() {
-    var indexOne = randomIndex(picArray.legnth);
+    var indexOne = randomIndex(picArray.length);
 
     picOne.src = picArray[indexOne].src;
     picOne.title = picArray[indexOne].title;
@@ -61,10 +61,10 @@ function generateImages() {
         indexTwo = randomIndex(picArray.length);
     }
 
-    picTwo.src = picArray[IndexTwo].src;
-    picTwo.title = picArray[IndexTwo].title;
-    picTwo.alt = picArray[IndexTwo].alt;
-    picArray[IndexTwo].viewed ++;
+    picTwo.src = picArray[indexTwo].src;
+    picTwo.title = picArray[indexTwo].title;
+    picTwo.alt = picArray[indexTwo].alt;
+    picArray[indexTwo].viewed ++;
 
     // picIndex.push(indexTwo);
 
@@ -73,50 +73,45 @@ function generateImages() {
         indexThree = randomIndex(picArray.length);
     }
 
-    picThree.src = picArray[IndexThree].src;
-    picThree.title = picArray[IndexThree].title;
-    picThree.alt = picArray[IndexThree].alt;
-    picArray[IndexThree].viewed ++;
+    picThree.src = picArray[indexThree].src;
+    picThree.title = picArray[indexThree].title;
+    picThree.alt = picArray[indexThree].alt;
+    picArray[indexThree].viewed ++;
     console.log(indexOne, indexTwo, indexThree);
+}
 
     // picIndex.push(indexOne, indexTrwo, indexThree);
 
     //Create Image On Page Function
     function createOnPage() {
         new image ('bag', 'Bag');
-        new image ('bag','bag');
-        new image ('boots','boots');
-        new image ('bathroom','bathroom');
-        new image ('boots','boots');
-        new image ('breakfast','breakfast');
-        new image ('bubblegum','bubblegum');
-        new image ('chair','chair');
-        new image ('cthulhu','cthulhu');
-        new image ('dog-duck','dog duck');
-        new image ('dragon','dragon');
-        new image ('pen','pen');
-        new image ('pet-sweep','pet sweetp');
-        new image ('scissors','scissors');
-        new image ('shark','shark');
-        new image ('sweep','sweep');
-        new image ('tauntaun','tauntaun');
-        new image ('unicorn','unicorn');
-        new image ('usb','usb');
-        new image ('water-can','water can');
-        new image ('wine-glass','water can');
-        new image ('wine-glass','wine glass');
+        new image ('banana', 'Banana');
+        new image ('boots', 'Boots');
+        new image ('bathroom', 'Bathroom');
+        new image ('boots', 'Boots');
+        new image ('breakfast', 'Breakfast');
+        new image ('bubblegum', 'BubbleGum');
+        new image ('chair', 'Chair');
+        new image ('cthulhu', 'Cthulhu');
+        new image ('dog-duck', 'Dog Duck');
+        new image ('dragon', 'Dragon');
+        new image ('pen', 'Pen');
+        new image ('pet-sweep', 'Pet Sweep');
+        new image ('scissors', 'Scissors');
+        new image ('shark', 'Shark');
+        new image ('sweep', 'Sweep');
+        new image ('tauntaun', 'TaunTaun');
+        new image ('unicorn', 'Unicorn');
+        new image ('usb', 'USB');
+        new image ('water-can', 'Water Can');
+        new image ('wine-glass', 'Wine Glass');
         }
 
-        createOnaPage();
+        createOnPage();
         generateImages();
-        picVote.addEventListener('click', clickvote)
+        picVote.addEventListener('click', clickVote)
 
         // console.log(picIndex);
         console.table(picArray);
         // console.log(Math.random());
 
-
-
-
-
-}
