@@ -56,24 +56,37 @@ function generateImages() {
     console.log(indexOne, indexTwo, indexThree);
 }
 
-function handleClick(event) {
+function clickVote(event) {
     voteRounds--;
-    while (voteRounds === 0) {
+    if (voteRounds !== 0) {
         console.log(event.target.title);
         var vote = event.target.title; //Creates a tally mechanism.
-        //the image that was clicked on.
-        console.log(vote, ' was clicked');
+        //the image that was vote on.
+        console.log(vote, ' was vote');
         for (var i = 0; i < picArray.length; i++) {
             if (vote === picArray[i].title) {
-                picArray[i].clicked++;
-                console.log('round ', round);
-                round++;
+                picArray[i].vote++;
             }
         }
-        picSelect(); //Haven't made this yet
-        //console.log('You clicked me!') //Proof of life
+        generateImages(); //Haven't made this yet "picSelect(); on erins"
+        //console.log('You vote me!') //Proof of life
         //Prove all pictures made it into the array.
+    } else {
+        picVote.removeEventListener('click', clickVote)
+        console.log('I stopped Line 77');
+        analysis();
     }
+}
+
+function analysis() {
+    var resultsSection = document.getElementById('list');
+    var ulEl = document.createElement('ul');
+    for (var i = 0; i < picArray.length; i++) {
+        var liEl = document.createElement('li');
+        liEl.textContent = `${picArray[i].title}:${picArray[i].vote} clicks & ${picArray[i].viewed}`;
+        ulEl.appendChild(liEl);
+    }
+    resultsSection.appendChild(ulEl);
 }
 
 
@@ -87,22 +100,22 @@ function hide(elem) {
 }
 
 
-//Create Random Helper Function
-function clickVote() {
-    var select = event.target.title;
-    for (var i = 0; i < picArray.length; i++) {
-        if (select === picArray[i].title) {
-            picArray[i].vote++;
-        }
-    }
-    generateImages();
-    console.table(picArray);
-    if (voteRounds === 0) {
-        hide(picVote);
-    }
-    voteRounds--;
-    console.log(voteRounds)
-}
+// //Create Random Helper Function
+// function clickVote() {
+//     var select = event.target.title;
+//     for (var i = 0; i < picArray.length; i++) {
+//         if (select === picArray[i].title) {
+//             picArray[i].vote++;
+//         }
+//     }
+//     generateImages();
+//     console.table(picArray);
+//     if (voteRounds === 0) {
+//         hide(picVote);
+//     }
+//     voteRounds--;
+//     console.log(voteRounds)
+// } //Worked on with Brendon
 
 
 
@@ -134,8 +147,8 @@ function createOnPage() {
 }
 
 createOnPage();
-generateImages();
 picVote.addEventListener('click', clickVote)
+generateImages();
 
 // console.log(picIndex);
 console.table(picArray);
