@@ -1,6 +1,53 @@
 body {
-    width: 100%
-    text-align: center
+    /* width: 100% */
+}
+
+h1 {
+    margin: 5% auto 5% auto;
+    text-align: center;
+}
+
+/* <section id="picVote">
+<img id="picture1" src="" alt="" title="">
+<img id="picture2" src="" alt="" title="">
+<img id="picture3" src="" alt="" title=""> */
+
+#picVote {
+    display: inline-block;
+    margin: 10px 32% 30px 32%;
+    /* border: 2px grey solid; */
+    width: 475px;
+    height: auto;
 
 }
 
+#picture1 {
+    display: inline;
+    width: 150px;
+    height: 150px;
+    border: 2px grey solid;
+}
+
+#picture2 {
+    display: inline;
+    width: 150px;
+    height: 150px;
+    border: 2px grey solid;
+}
+
+#picture3 {
+    display: inline;
+    width: 150px;
+    height: 150px;
+    border: 2px grey solid;
+}
+
+div p {
+    margin: 10px 32% 10px 32%;
+    text-align: center;
+}
+
+#list {
+    margin: 10px 32% 10px 32%;
+    text-align: left;
+}
